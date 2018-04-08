@@ -1,0 +1,46 @@
+---
+layout: division
+js: calc-toughness
+title: Toughness Calculator
+info: "Calculated your estimated toughness and compare it."
+---
+<div class="main-container wide">
+    <h1>{{page.title}}</h1>
+    <p>{{page.info}}</p>
+    <p>If you are using the Health from your ingame Character Stats screen, leave Stamina at 0.</p>
+    <div class="first">
+        <h2>First Setup</h2>
+        <div class="flex-row flex-align-center">
+            <div class="flex-list">
+                <div class="flex-item">
+                    <label>Armor:</label><input type="number" class="armor">
+                </div>
+                <div class="flex-item">
+                    <label>Stamina:</label><input type="number" class="stamina">
+                </div>
+                <div class="flex-item">
+                    <label>Health:</label><input type="number" class="health">
+                </div>
+            </div>
+            <div class="output">0</div>
+        </div>
+    </div>
+    <div class="second">
+        <h2>Second Setup</h2>
+        <div class="flex-row flex-align-center">
+            <div class="flex-list">
+                <div class="flex-item">
+                    <label>Armor:</label><input type="number" class="armor">
+                </div>
+                <div class="flex-item">
+                    <label>Stamina:</label><input type="number" class="stamina">
+                </div>
+                <div class="flex-item">
+                    <label>Health:</label><input type="number" class="health">
+                </div>
+            </div>
+            <div class="output">0</div>
+        </div>
+    </div>
+</div>
+{% include noscript-calc.html %}

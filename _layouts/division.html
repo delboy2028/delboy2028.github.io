@@ -1,0 +1,37 @@
+---
+layout: division
+---
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		{% include header.html %}
+	    {% if page.js %}
+	    <script type="text/javascript" src="/js/{{page.js}}.js"></script>
+	    {% endif %}
+	    {% if page.js contains 'calc-' %}
+	    <script type="text/javascript" src="/js/calc.js"></script>
+	    {% endif %}
+	</head>
+  	<body>
+  		<div class="beta">BETA</div>
+		{% if page.id != "index" %}
+		<a href="/" class="back-button">
+		    {% include close.svg %}
+		</a>
+		{% endif %}
+		<div class="main">
+			{% if page.id != "build" and page.id != 404 %}
+			<div class="header">
+			    <a href="/">
+			        <div class="main-header">
+			            <div class="title">Division Builds</div>
+			        </div>
+			    </a>
+			    {% include navbar.html %}
+			</div>
+			{% endif %}
+			{{ content }}
+		</div>
+		{% include footer.html %}
+	</body>
+</html>

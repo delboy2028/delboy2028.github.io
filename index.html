@@ -1,0 +1,58 @@
+---
+layout: division
+id: index
+js: index
+---
+<div class="banner orange">
+	<div class="content">This website is work in progress! Want to stay informed?<br>Follow <a href="https://twitter.com/Division_Builds">@Division_Builds</a> on Twitter or join the DivisionBuilds Discord: <a href="https://discord.me/divisionbuilds">discord.me/divisionbuilds</a></div>
+	<span class="close">
+		{% include close.svg %}
+	</span>
+</div>
+<div class="search-bar">
+    <input class="search" type="text" placeholder="Search">
+</div>
+<div class="build-container">
+    {% assign t = '|' | split: '|' %}
+    {% assign s = site.pages | where: 'layout', 'build' %}
+    {% for f in s %}
+        {% assign d = f.date | date: '%s' %}
+        {% assign t = t | push: d %}
+    {% endfor %}
+    {% assign t = t | uniq | sort | reverse %}
+    {% assign b = '|' | split: '|' %}
+    {% for i in t %}
+        {% assign d = i | date: '%d/%m/%Y' %}
+        {% assign c = s | where: 'date', d %}
+        {% for e in c %}
+            {% assign b = b | push: e %}
+        {% endfor %}
+    {% endfor %}
+    {% assign a = '1.8,1.7,1.6' | split: ',' %}
+    {% for p in a %}
+        {% assign n = p | plus: 0 %}
+        <h1 class="divider">Patch {{p}}</h1>
+        <div class="build-list">
+            {% for f in b %}
+                {% if f.patch == n %}
+                <a href="{{f.url | remove: '.html'}}">
+                    <div class="list-item">
+                        <div class="title">{{f.title}}</div>
+                        <div class="info">
+                            Author: <span class="author">{{f.author}}</span>
+                            <span class="date">Last updated: {{f.date}}</span>
+                        </div>
+                        {% if f.tags %}
+                        <div class="tags">
+                            {% for t in f.tags %}
+                            <span class="tag">{{t}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

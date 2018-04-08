@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+{% if page.alttitle %}
+	{% assign n = page.alttitle %}
+{% else %}
+	{% assign n = site.name %}
+{% endif %}
+<title>{% if page.title %}{{page.title}} - {% endif %}{{n}}</title>
+<meta name="description" content="{{site.description}}"/>
+<meta name="author" content="{{site.author}}"/>
+<link rel="icon" type="image/png" href="{{site.icon}}">
+<meta name="viewport" content="width=900, initial-scale=1">
+{% if site.google_analytics %} {% include analytics.html %} {% endif %}
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/division.js"></script>
+<link rel="stylesheet" href="/css/division.css">
